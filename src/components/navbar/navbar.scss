@@ -1,0 +1,89 @@
+.navbar {
+  height: 80px;
+  cursor: pointer;
+
+  .wrapper {
+    display: flex;
+    //justify content space between gives space btwn each main div , left to left right to right and center to center
+    justify-content: space-between;
+    padding: 10px 30px;
+    align-items: center;
+
+    .item {
+      display: flex;
+      align-items: center;
+      font-size: 18px;
+
+      .img {
+        height: 10px;
+      }
+    }
+
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+    .center {
+      font-size: 30px;
+      letter-spacing: 2px;
+      position: relative;
+      color: black;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        height: 2px;
+        width: 0%;
+        bottom: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #000;
+        transition: width 0.2s ease-in-out;
+      }
+
+      &::after {
+        bottom: auto;
+        top: -5px;
+      }
+
+      &:hover::before,
+      &:hover::after {
+        width: 80%;
+      }
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+    .icons {
+      display: flex;
+      color: #777;
+      gap: 20px;
+
+      .carticon {
+        //parent have relative position the child to use absolute zipandane
+
+        position: relative;
+
+        span {
+          font-size: 12px;
+          border-radius: 50%;
+          width: 20px;
+          height: 20px;
+          background-color: #2879fe;
+          color: white;
+          position: absolute;
+          right: -10px;
+          top: -10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}

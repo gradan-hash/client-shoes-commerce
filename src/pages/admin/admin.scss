@@ -1,0 +1,19 @@
+.admin-container {
+  display: flex;
+
+  height: 100vh;
+  margin-left: 18.4em;
+
+  .ad-sidebar {
+    flex: 4;
+  }
+
+  .admin-content {
+    flex: 8;
+    padding: 20px;
+  }
+}
+.admintit {
+  font-size: 18px;
+  font-style: italic;
+}

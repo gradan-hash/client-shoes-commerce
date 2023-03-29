@@ -1,0 +1,115 @@
+
+import React from "react";
+import { render } from "react-dom";
+import { BrowserRouter, Route, Link } from "react-router-dom";
+import { TwitterLoginButton } from 'react-social-login-buttons';
+
+// import components
+import Home from "./components/Home";
+import MyStore from "./components/MyStore";
+import SellProduct from "./components/SellProduct";
+
+const App = () => (
+  <BrowserRouter> 
+    <div>
+      <Route exact path="/" component={Home} />
+      <Route path="/mystore" component={MyStore} />
+      <Route path="/sellproduct" component={SellProduct} />
+    </div>
+  </BrowserRouter>
+);
+
+render(<App />, document.getElementById("root"));
+
+// Home.js
+import React from 'react';
+import { TwitterLoginButton } from 'react-social-login-buttons';
+
+const Home = () => (
+  <div>
+    <h1>Welcome to My Digital Store!</h1>
+    <TwitterLoginButton onClick={() => alert('You are now logged in with Twitter!')} />
+  </div>
+);
+
+export default Home;
+
+// MyStore.js
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
+const MyStore = () => {
+  const [products, setProducts] = useState([]);
+
+  const addProduct = (product) => {
+    setProducts([...products, product]);
+  };
+
+  return (
+    <div>
+      <h2>My Store</h2>
+      <div>
+        {
+          products.map(product => (
+            <div>
+              <h3>{product.name}</h3>
+              <p>{product.price}</p>
+            </div>
+          ))
+        }
+      </div>
+      <Link to="/sellproduct">
+        <button>Sell a Product</button>
+      </Link>
+    </div>
+  );
+};
+
+export default MyStore;
+
+// SellProduct.js
+import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
+
+const SellProduct = ({addProduct}) => {
+  const [name, setName] = useState('');
+  const [price, setPrice] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const product = {name, price};
+    addProduct(product);
+    setName('');
+    setPrice('');
+  };
+
+  return (
+    <div>
+      <h2>Sell a Product</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>Name</label>
+          <input 
+            type="text"
+            value={name}
+            onChange={e => setName(e.target.value)}
+          />
+        </div>
+        <div>
+          <label>Price</label>
+          <input 
+            type="text"
+            value={price}
+            onChange={e => setPrice(e.target.value)}
+          />
+        </div>
+        <button>Submit</button>
+      </form>
+      <Link to="/mystore">
+        <button>Go to My Store</button>
+      </Link>
+    </div>
+  );
+};
+
+export default SellProduct;

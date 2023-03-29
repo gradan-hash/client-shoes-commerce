@@ -1,0 +1,23 @@
+.slider {
+  height: 50vh;
+  position: relative;
+  overflow: hidden;
+
+  .container {
+    width: auto;
+    height: 100%;
+    display: flex;
+    transition: all 1s ease;
+    justify-content: center;
+
+    .img1 {
+      flex: 4;
+    }
+    .img2 {
+      flex: 4;
+    }
+    .img3 {
+      flex: 4;
+    }
+  }
+}
