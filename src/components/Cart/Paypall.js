@@ -71,7 +71,7 @@ const Paypal = ({ totalPrice, onSuccess, onError, onCancel }) => {
   return (
     <PayPalScriptProvider
       options={{
-        "client-id": process.env.REACT_APP_CLIENT_ID,
+        "client-id": "AUK5U-k-ONwOLYbftNgTYhstQDHz1HPKugeXvNTzoV57INJB8QVVqlr0Q0xg4-G60XJqm4UB8oMGZ2tI",
       }}>
       <PayPalButtons onClick={handlePayPalClick} />
     </PayPalScriptProvider>

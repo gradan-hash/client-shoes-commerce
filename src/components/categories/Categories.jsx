@@ -13,7 +13,7 @@ function Categories() {
         <div className="row">
           <img src={menshoes} alt="" />
           <button>
-            <Link to="/products/1" className="link">
+            <Link to="/products/men" className="link">
               Top Sale
             </Link>
           </button>
@@ -21,7 +21,7 @@ function Categories() {
         <div className="row">
           <img src={womenshoes} alt="" />
           <button>
-            <Link to="/products/1" className="link">
+            <Link to="/products/women" className="link">
               Women
             </Link>
           </button>
@@ -31,7 +31,7 @@ function Categories() {
         <div className="row">
           <img src={jordans} alt="" />
           <button>
-            <Link to="/products/1" className="link">
+            <Link to="/products/men" className="link">
               Jordans
             </Link>
           </button>
@@ -44,7 +44,7 @@ function Categories() {
             <div className="row">
               <img src={menshoes1} alt="" />
               <button>
-                <Link to="/products/1" className="link">
+                <Link to="/products/men" className="link">
                   Men
                 </Link>
               </button>
@@ -54,7 +54,7 @@ function Categories() {
             <div className="row">
               <img src={max97} alt="" />
               <button>
-                <Link to="/products/1" className="link">
+                <Link to="/products/both" className="link">
                   Air Max
                 </Link>
               </button>
@@ -68,7 +68,7 @@ function Categories() {
             alt=""
           />
           <button>
-            <Link to="/products/1" className="link">
+            <Link to="/products/women" className="link">
               Airforce's
             </Link>
           </button>
