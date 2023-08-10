@@ -35,10 +35,10 @@ function Footer() {
         </div>
 
         <div className="item">
-          <h2>Contact</h2>
-          <span>Email: info@twicethriftstore.com</span>
-          <span>Phone: 1-800-123-4567</span>
-          <span>Address: 123 Main Street, Anytown USA</span>
+          <h2>Contact Developer: </h2>
+          <span>Email: corneliusmutuku55@gmail.com</span>
+          <span>Phone: 0796881039 </span>
+          <span>Address: Machakos kenya</span>
         </div>
       </div>
       <div className="bottom">
