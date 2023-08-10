@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate("");
@@ -19,12 +20,14 @@ const Register = () => {
     event.preventDefault();
 
     try {
+      setLoading(true);
       const response = await axios.post(RegisterRoute, {
         username,
         password,
         email,
       });
       console.log(response);
+      setLoading(false);
 
       if (response.status === 200) {
         navigate("/accounts/login");
@@ -32,8 +35,10 @@ const Register = () => {
         navigate("/accounts/register");
       }
     } catch (error) {
+      setLoading(true);
       console.error(error);
       setError(error.message);
+      setLoading(false);
     }
   };
 
@@ -98,7 +103,9 @@ const Register = () => {
             </div>
             <br></br>
             <br></br>
-            <button className="signup">Sign Up</button>
+            <button className="signup">
+              {loading ? "please wait" : "Sign Up"}
+            </button>
             <p className="extra-commet">
               "Already have an account Please{" "}
               <Link to="/accounts/login" className="ex-link">
