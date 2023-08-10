@@ -73,7 +73,7 @@ const Login = () => {
             <br />
             <br />
             <button className="signup" disabled={isFetching}>
-              {isFetching ? "Loading..." : "Log In"}
+              {isFetching ? "Please wait..." : "Log In"}
             </button>
             <p className="extra-commet">
               "Dont have Account Please{" "}
