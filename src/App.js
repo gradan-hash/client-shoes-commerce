@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React, { Children, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Footer from "./components/footer/Footer";
 import Navbar from "./components/navbar/Navbar";
@@ -19,26 +19,22 @@ import OrderTable from "./components/adminnav/orders";
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
+  // console.log(user.isadmin);
+  const admin = user && user.user.isadmin;
+  const normal = user;
+  console.log(admin);
+  console.log(normal);
 
-  console.log(user);
-  const isAdmin = user && user.isadmin === true;
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-
         <Route path="/products/:param" element={<AllProducts />} />
-
         <Route path="/product/:id" element={<Product />} />
-
-        <Route path="/accounts/login" element={user ? <Home /> : <Login />} />
+        <Route path="/accounts/login" element={<Login />} />
         <Route path="/accounts/register" element={<Register />} />
 
-        <Route
-          path="/accounts/admin"
-          element={isAdmin ? <AdminHome /> : <Login />}
-        />
-
+        <Route path="/accounts/admin" element={<AdminHome />} />
         <Route path="/orders" element={<OrderTable />} />
       </Routes>
     </BrowserRouter>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./login.scss";
 import { Link, useNavigate } from "react-router-dom";
+
 import image1 from "../../img/image1.jpg";
 import image3 from "../../img/image3.jpg";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,9 +20,14 @@ const Login = () => {
     event.preventDefault();
     try {
       await login({ email, password }, dispatch);
-    } catch (error) {}
+      // Redirect to admin section if user is admin
+      navigate(
+        user && user.user.email === "admin@gmail.com" ? "/accounts/admin" : "/"
+      );
+    } catch (error) {
+      console.error(error);
+    }
   };
-
   return (
     <div className="register">
       <div className="leftregister">
