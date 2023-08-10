@@ -19,8 +19,8 @@ const Login = () => {
     event.preventDefault();
     try {
       await login({ email, password }, dispatch);
-
-      if (user.email === "admin@gmail.com" && user.password === "admin1234") {
+      console.log(user.isadmin);
+      if (user.isadmin === "true") {
         navigate("/accounts/admin");
       } else {
         navigate("/");
