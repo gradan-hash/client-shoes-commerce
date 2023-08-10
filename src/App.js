@@ -25,7 +25,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={user ? <Home /> : <Login />} />
+        <Route path="/" element= {<Home /> } />
 
         <Route path="/products/:param" element={<AllProducts />} />
 
