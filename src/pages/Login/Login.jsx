@@ -19,15 +19,6 @@ const Login = () => {
     event.preventDefault();
     try {
       await login({ email, password }, dispatch);
-      console.log(user.isadmin);
-      if (user.isadmin === "true") {
-        navigate("/accounts/admin");
-      } else {
-        navigate("/");
-      }
-      if (error) {
-        navigate("/accounts/login");
-      }
     } catch (error) {}
   };
 

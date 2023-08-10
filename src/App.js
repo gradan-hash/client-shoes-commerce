@@ -21,7 +21,7 @@ function App() {
   const user = useSelector((state) => state.user.currentUser);
 
   console.log(user);
-
+  const isAdmin = user.isadmin === true;
   return (
     <BrowserRouter>
       <Routes>
@@ -34,7 +34,10 @@ function App() {
         <Route path="/accounts/login" element={<Login />} />
         <Route path="/accounts/register" element={<Register />} />
 
-        <Route path="/accounts/admin" element={<AdminHome />} />
+        <Route
+          path="/accounts/admin"
+          element={isAdmin ? <AdminHome /> : <Login />}
+        />
 
         <Route path="/orders" element={<OrderTable />} />
       </Routes>
