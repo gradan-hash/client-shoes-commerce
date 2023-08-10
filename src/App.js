@@ -21,7 +21,7 @@ function App() {
   const user = useSelector((state) => state.user.currentUser);
 
   console.log(user);
-  const isAdmin = user.isadmin === true;
+  const isAdmin = user && user.isadmin === true;
   return (
     <BrowserRouter>
       <Routes>
